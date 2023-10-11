@@ -17,4 +17,4 @@ RetornarLetraFaltanteDelAlfabeto(cadena)
 # Si el elemento del array en la posicion j es 0 al final del ciclo for entonces ese letra es la que falta
 ```
 
-![Captura de la ejecución del código](Desarrollo-software-2023/PrácticaCalificada2/Imágenes/PC2Imagen1.png)
+![Captura de la ejecución del código](https://github.com/EdwardAlexanderCanalesYarin/Desarrollo-software-2023/tree/main/Pr%C3%A1cticaCalificada2/Im%C3%A1genes/PC2Imagen1.png)
