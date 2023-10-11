@@ -18,3 +18,6 @@ RetornarLetraFaltanteDelAlfabeto(cadena)
 ```
 
 ![Captura de la ejecución del código](Imágenes/PC2Imagen1.png)
+
+El código consta de una función que devuelve la letra del alfabeto que falta en un cadena que recibe como entrada, el array BitsAlfabeto es de tamaño 26 (se toma en cuenta las letras del alfabeto inglés) cuyos elementos son 0 (en este arreglo se contabilizará la veces que aparece alguna letra del alfabeto en la cadena de entrada con la ayuda del primer bucle for). El 2do bucle for buscará cuál de elementos del array BitsAlfabeto permaneció en 0, esto significa que el elemento en dicha posición es la letra faltante en la cadena de entrada. 
+
