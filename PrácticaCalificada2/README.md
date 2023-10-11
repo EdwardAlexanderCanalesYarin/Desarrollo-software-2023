@@ -1,6 +1,6 @@
 # Parte 1 Algoritmos, Programación Orientada a Objetos
 # 1
-''' python
+``` python
 import numpy as np 
 def RetornarLetraFaltanteDelAlfabeto(cadena):
   BitsAlfabeto = np.array([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
@@ -15,4 +15,4 @@ cadena = "the quick brown box jumps over a lazy dog"
 RetornarLetraFaltanteDelAlfabeto(cadena)
 # 97 equivale 'a' - 122 equivale a 'z', 32 equivale a espacio
 # Si el elemento del array en la posicion j es 0 al final del ciclo for entonces ese letra es la que falta
-'''
+```
