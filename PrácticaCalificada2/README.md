@@ -16,3 +16,5 @@ RetornarLetraFaltanteDelAlfabeto(cadena)
 # 97 equivale 'a' - 122 equivale a 'z', 32 equivale a espacio
 # Si el elemento del array en la posicion j es 0 al final del ciclo for entonces ese letra es la que falta
 ```
+
+![Captura de la ejecución del código](Desarrollo-software-2023/PrácticaCalificada2/Imágenes/PC2Imagen1.png)
