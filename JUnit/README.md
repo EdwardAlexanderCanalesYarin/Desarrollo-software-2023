@@ -16,3 +16,4 @@ Para implementar casos de prueba basados en JUnit5 en un proyecto, agregue la si
      <scope>test</scope>
 </dependency>
 ``` 
+![Dependencies](Imágenes/Dependencies.png)
