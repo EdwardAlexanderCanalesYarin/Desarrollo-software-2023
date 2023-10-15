@@ -1,5 +1,10 @@
-## JUnit5
-# Dependencias de JUnit Maven
+# JUnit5
+## Tutorial JUnit5
+En este tutorial de Junit, presentaremos los conceptos básicos de JUnit5 y sus nuevas funciones mediante ejemplos. En el mundo Java, JUnit es uno de los marcos populares utilizados para implementar pruebas unitarias en código Java. JUnit ayuda principalmente a los desarrolladores a probar ellos mismos su código en la JVM.
+
+## Arquitectura JUnit5
+
+## Dependencias de JUnit Maven
 Para implementar casos de prueba basados en JUnit5 en un proyecto, agregue la siguiente dependencia al archivo pom.xml del proyecto:
 
 ``` java
