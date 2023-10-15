@@ -17,3 +17,20 @@ Para implementar casos de prueba basados en JUnit5 en un proyecto, agregue la si
 </dependency>
 ``` 
 ![Dependencies](Imágenes/Dependencies.png)
+
+Proveedor JUnit5 maven surefire para ejecutar las pruebas unitarias donde el IDE no tiene soporte para JUnit5 (si el IDE tiene soporte, entonces este punto no es necesario)
+
+``` java
+<plugin>
+     <artifactId>maven-surefire-plugin</artifactId>
+     <version>2.19.1</version>
+     <dependencies>
+          <dependency>
+               <groupId>org.junit.platform</groupId>
+               <artifactId>junit-platform-surefire-provider</artifactId>
+               <version>1.0.2</version>
+          </dependency>
+     </dependencies>
+</plugin>
+```
+En el caso de que uses IntelliJ idea, no es necesario el punto anterior debido a que este IDE tiene soporte para JUnit5
