@@ -175,5 +175,5 @@ public class JUnit5SampleAssertionsTest {
     }
 }     
 ```
-![AsserionsExecution](Imágenes/AsserionsExecution.png)
+![AssertionsExecution](Imágenes/AssertionsExecution.png)
 Ejecución de la clase de prueba JUnit5SampleAssertionsTest
