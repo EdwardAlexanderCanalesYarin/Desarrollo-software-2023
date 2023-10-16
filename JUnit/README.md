@@ -178,3 +178,16 @@ public class JUnit5SampleAssertionsTest {
 ![AssertionsExecution](Imágenes/AssertionsExecution.png)
 
 Ejecución de la clase de prueba JUnit5SampleAssertionsTest
+
+### JUnit5 Imports
+Sus clases de prueba necesitan la declaración de importación org.junit.jupiter.api.Test y no org.junit.Test. Además, no es necesario que los métodos de prueba sean un paquete público y local.
+``` java
+import org.junit.jupiter.api.Test;
+```
+
+### JUnit5 Assumptions
+Los assumptions son métodos estáticos en la clase org.junit.jupiter.api.Assumptions. Ejecutarán una prueba solo cuando se cumpla la condición especificada; de lo contrario, la prueba se cancelará. La prueba abortada no provocará un error de compilación. Cuando falla una suposición, se lanza org.opentest4j.TestAbortedException y se omite la prueba.
+
+![Assumptions](Imágenes/Assumptions.png)
+
+
