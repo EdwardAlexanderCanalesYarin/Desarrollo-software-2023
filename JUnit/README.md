@@ -70,7 +70,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-public class JUnit5SampleTest {
+public class JUnit5SampleAnnotationsTest {
 
     @BeforeAll
     static void beforeAll() {
@@ -111,7 +111,7 @@ public class JUnit5SampleTest {
 }
 ```
 ![AnnotationsExecution](Imágenes/AnnotationsExecution.png)
-Ejecución de la clase de prueba JUnit5SampleTest
+Ejecución de la clase de prueba JUnit5SampleAnnotationsTest
 
 ### JUnit Assertions
 Cada método de prueba debe evaluarse contra la condición de verdadero mediante aserciones para que la prueba pueda continuar ejecutándose. Las afirmaciones de JUnit Júpiter se mantienen en la clase org.junit.jupiter.api.Assertions. Todos los métodos son estáticos.
@@ -175,3 +175,5 @@ public class JUnit5SampleAssertionsTest {
     }
 }     
 ```
+![AsserionsExecution](Imágenes/AsserionsExecution.png)
+Ejecución de la clase de prueba JUnit5SampleAssertionsTest
