@@ -326,4 +326,20 @@ Ejecución de la clase de prueba JUnit5SampleNestedTest
 
 OBSERVACIÓN: Las anotaciones @BeforeEach y @AfterEach de la clase de prueba JUnitSampleNestedTest y InnerClass tuve que ponerlas como comentario pues me arrojaban error ("Failed to find instance for method: void com.journaldev.JUnitSampleNestedTest.beforeEach()"), sin embargo esas mismas anotaciones propias de la clase InnerMostClass no arrojaron error
 
+### JUnit Test Exception
+Hay situaciones en las que se espera que los métodos generen una excepción bajo una condición específica. assertThrows fallará la prueba si el método dado no arroja la excepción especificada.
 
+``` java
+Throwable exception = assertThrows(IllegalArgumentException.class, () -> {
+     throw new IllegalArgumentException("Illegal Argument Exception occured");
+});
+assertEquals("Illegal Argument Exception occured", exception.getMessage());
+```
+
+## JUnit Test Execution
+Las pruebas unitarias se pueden ejecutar de muchas formas, dos de las cuales son las siguientes:
+* Utilice la versión Eclipse IDE Oxygen.3a (4.7.3a) y abra el archivo de prueba para ejecutarlo. Haga clic derecho en el archivo y elija la opción Ejecutar como seguido de Prueba JUnit
+* Utilice el comando mvn test en el símbolo del sistema de Windows
+
+## Summary
+Hemos explorado JUnit5 y sus nuevas funciones con algunos ejemplos. También vimos cómo podemos usar annotations, assertions, assumptions, exceptions de JUnit y escribir clases nested test.
