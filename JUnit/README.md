@@ -109,6 +109,8 @@ public class JUnit5SampleTest {
         System.out.println("**--- Executed once after all test methods in this class ---**");
     }
 }
-``` 
+```
+![AnnotationsExecution](Imágenes/AnnotationsExecution.png)
+Ejecución de la clase de prueba JUnit5SampleTest
 
 
