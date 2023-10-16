@@ -247,3 +247,7 @@ public class JUnit5SampleAssumptionsTest {
 ![AssumptionsExecution](Imágenes/AssumptionsExecution.png)
 Ejecución de la clase de prueba JUnit5SampleAssumptionsTest
 
+### JUnit Nested Test Classes
+Las nested test permiten crear clases anidadas y ejecutar todos sus métodos de prueba. Las clases internas deben ser no estáticas. Simplemente anote las clases internas con @Nested y se ejecutarán todos los métodos de prueba dentro de ellas.
+
+
