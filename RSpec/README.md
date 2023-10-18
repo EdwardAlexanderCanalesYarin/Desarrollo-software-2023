@@ -78,11 +78,42 @@ Este tutorial de RSpec se basará en la implementación de una parte de una calc
 Comencemos un nuevo proyecto Ruby donde configuraremos RSpec como una dependencia a través de Bundler.
 
 Cree un nuevo directorio y coloque el siguiente código en su Gemfile:
+``` ruby
+# Gemfile
+source "https://rubygems.org"
 
+gem "rspec"
+```
+- Gemfile: Es un archivo de configuración utilizado en proyectos de Ruby para especificar las gemas (bibliotecas o paquetes de código) que el proyecto necesita, así como las versiones específicas o restricciones de versiones que deben cumplirse.
 
+Abra el directorio de su proyecto en su terminal y escriba **bundle install --path .bundle** o los comandos **bundle config set --local path '.bundle'** seguido del comando **bundle install** para instalar la última versión de RSpec y todas las dependencias relacionadas. Verá un resultado similar al siguiente:
+```
+$ bundle install --path .bundle
+Fetching gem metadata from https://rubygems.org/...........
+Resolving dependencies...
+Using bundler 2.1.4
+Fetching diff-lcs 1.3
+Installing diff-lcs 1.3
+Fetching rspec-support 3.9.2
+Installing rspec-support 3.9.2
+Fetching rspec-core 3.9.1
+Installing rspec-core 3.9.1
+Fetching rspec-expectations 3.9.0
+Installing rspec-expectations 3.9.0
+Fetching rspec-mocks 3.9.1
+Installing rspec-mocks 3.9.1
+Fetching rspec 3.9.0
+Installing rspec 3.9.0
+Bundle complete! 1 Gemfile dependency, 7 gems now installed.
+Bundled gems are installed into `./.bundle`
+```
 
+## Escribiendo el primer spec
+Por convención, las pruebas escritas con RSpec se denominan "spec" (abreviatura de "specifications") y se almacenan en el directorio de spec del proyecto. Crea ese directorio en tu proyecto también:
 
-
+```
+mkdir spec
+```
 
 
 
