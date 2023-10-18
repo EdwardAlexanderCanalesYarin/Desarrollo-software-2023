@@ -87,7 +87,7 @@ gem "rspec"
 - Gemfile: Es un archivo de configuración utilizado en proyectos de Ruby para especificar las gemas (bibliotecas o paquetes de código) que el proyecto necesita, así como las versiones específicas o restricciones de versiones que deben cumplirse.
 
 Abra el directorio de su proyecto en su terminal y escriba **bundle install --path .bundle** o los comandos **bundle config set --local path '.bundle'** seguido del comando **bundle install** para instalar la última versión de RSpec y todas las dependencias relacionadas. Verá un resultado similar al siguiente:
-```
+``` ruby
 $ bundle install --path .bundle
 Fetching gem metadata from https://rubygems.org/...........
 Resolving dependencies...
@@ -107,11 +107,12 @@ Installing rspec 3.9.0
 Bundle complete! 1 Gemfile dependency, 7 gems now installed.
 Bundled gems are installed into `./.bundle`
 ```
+![Comandos](Imágenes/BundleInstall.png)
 
 ## Escribiendo el primer spec
 Por convención, las pruebas escritas con RSpec se denominan "spec" (abreviatura de "specifications") y se almacenan en el directorio de spec del proyecto. Crea ese directorio en tu proyecto también:
 
-```
+``` ruby
 mkdir spec
 ```
 
