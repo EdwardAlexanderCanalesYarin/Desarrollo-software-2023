@@ -115,6 +115,8 @@ Por convención, las pruebas escritas con RSpec se denominan "spec" (abreviatura
 ``` ruby
 mkdir spec
 ```
+Comencemos a escribir nuestra primera spec. Así es, comenzaremos escribiendo una spec de la calculadora de cadenas, ¡y no de la calculadora de cadenas en sí!
+
 
 
 
