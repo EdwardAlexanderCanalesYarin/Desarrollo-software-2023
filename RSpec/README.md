@@ -117,7 +117,20 @@ mkdir spec
 ```
 Comencemos a escribir nuestra primera spec. Así es, comenzaremos escribiendo una spec de la calculadora de cadenas, ¡y no de la calculadora de cadenas en sí!
 
+``` ruby
+# spec/string_calculator_spec.rb
+describe StringCalculator do
+end
+```
+Con RSpec, siempre estamos describiendo el comportamiento de clases, módulos y sus métodos. El bloque de descripción siempre se usa en la parte superior para poner las especificaciones en un contexto. Puede aceptar un nombre de clase, en cuyo caso la clase debe existir, o cualquier cadena que desee.
+Dado que los métodos de Ruby no requieren el uso de paréntesis, este archivo ya comienza a parecerse más a un ensayo que a un código de computadora. Ese es exactamente el objetivo.
+Para ejecutar las specs, escriba:
 
+``` ruby
+$ bundle exec rspec
+```
+Haga esto ahora y su especificación fallará con el error StringCalculator constante no inicializado. Eso es de esperarse, ya que aún no hemos creado esa clase.
+Haga esto ahora y su especificación fallará con el error StringCalculator constante no inicializado. Eso es de esperarse, ya que aún no hemos creado esa clase.
 
 
 
