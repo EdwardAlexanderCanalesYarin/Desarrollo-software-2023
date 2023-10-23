@@ -168,6 +168,8 @@ Finished in 0.00068 seconds (files took 0.30099 seconds to load)
 0 examples, 0 failures
 ```
 
+![PasaStringCalculator](Imágenes/PasaStringCalculator.png)
+
 Lo que hemos logrado aquí es que hemos establecido una configuración de trabajo de nuestro proyecto. Contamos con un circuito de retroalimentación funcional que incluye pruebas y código de aplicación.
 
 Entonces procedamos escribiendo algo de código.
@@ -188,7 +190,6 @@ describe StringCalculator do
 end
 ``` 
 
-![PasaStringCalculator](Imágenes/PasaStringCalculator.png)
 
 
 
