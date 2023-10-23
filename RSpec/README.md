@@ -134,7 +134,59 @@ Haga esto ahora y su especificación fallará con el error StringCalculator cons
 
 ![Comandos](Imágenes/ErrorStringCalculator.png)
 
+Cree un nuevo directorio llamado lib:
 
+``` ruby
+mkdir lib
+```
+
+Declare StringCalculator en string_calculator.rb:
+
+``` ruby
+# lib/string_calculator.rb
+class StringCalculator
+end
+```
+
+Y solicítelo en su especificación:
+
+``` ruby
+# spec/string_calculator_spec.rb
+require "string_calculator"
+
+describe StringCalculator do
+end
+```
+
+La ejecución de RSpec ahora pasa:
+
+``` ruby
+$ bundle exec rspec
+No examples found.
+
+Finished in 0.00068 seconds (files took 0.30099 seconds to load)
+0 examples, 0 failures
+```
+
+Lo que hemos logrado aquí es que hemos establecido una configuración de trabajo de nuestro proyecto. Contamos con un circuito de retroalimentación funcional que incluye pruebas y código de aplicación.
+
+Entonces procedamos escribiendo algo de código.
+
+Lo más sencillo que puede hacer nuestra calculadora de cadenas es aceptar una cadena vacía, en cuyo caso podríamos decidir que queremos que devuelva un cero. El método que debemos describir primero es add.
+
+``` ruby
+# spec/string_calculator_spec.rb
+describe StringCalculator do
+
+  describe ".add" do
+    context "given an empty string" do
+      it "returns zero" do
+        expect(StringCalculator.add("")).to eq(0)
+      end
+    end
+  end
+end
+``` 
 
 
 
