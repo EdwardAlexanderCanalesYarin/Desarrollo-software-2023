@@ -107,7 +107,7 @@ Installing rspec 3.9.0
 Bundle complete! 1 Gemfile dependency, 7 gems now installed.
 Bundled gems are installed into `./.bundle`
 ```
-![Comandos](Imágenes/BundleInstall.png)
+
 
 ## Escribiendo el primer spec
 Por convención, las pruebas escritas con RSpec se denominan "spec" (abreviatura de "specifications") y se almacenan en el directorio de spec del proyecto. Crea ese directorio en tu proyecto también:
