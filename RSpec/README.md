@@ -210,6 +210,7 @@ Failures:
        undefined method `add' for StringCalculator:Class
      # ./spec/string_calculator_spec.rb:8:in `block (4 levels) in <top (required)>'
 ```
+![ErrorMetodoNoDefinido](Imágenes/ErrorMetodoNoDefinido.png)
 
 Escribamos la cantidad mínima de código para que se cumpla esa especificación:
 
@@ -224,6 +225,8 @@ end
 ```
 
 Queremos escribir el código más simple posible que permita cumplir con las especificaciones, ¿recuerdas? Si ejecuta bundle exec rspec ahora, la especificación se cumple.
+
+![EspecificacionExitosa](Imágenes/EspecificacionExitosa.png)
 
 
 
