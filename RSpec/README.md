@@ -187,10 +187,43 @@ describe StringCalculator do
     end
   end
 end
-``` 
+```
 
+Hay un par de cosas nuevas aquí:
+* Estamos usando otro bloque de descripción para describir el método de add clase. Por convención, los métodos de clase tienen el prefijo un punto (".add") y los métodos de instancia un numeral ("#add").
+* Estamos utilizando un bloque de contexto para describir el contexto bajo el cual se espera que el método add devuelva cero. El contexto es técnicamente el mismo que describe, pero se usa en diferentes lugares para ayudar a leer el código.
+* Estamos usando un bloque it para describir un ejemplo específico, que es la forma en que RSpec dice "caso de prueba". Generalmente, cada ejemplo debe ser descriptivo y, junto con el contexto, debe formar una oración comprensible. Este se lee como "método agregar clase: dada una cadena vacía, devuelve cero".
+* expect(...).to y la variante negativa expect(...).not_to se utilizan para definir los resultados esperados. La expresión Ruby que se les proporciona (en nuestro caso, StringCalculator.add("")) se combina con un comparador para definir completamente una expectativa en un fragmento de código. El comparador que estamos usando aquí es eq, un comparador de igualdad básico. RSpec viene con muchos más comparadores integrados.
 
+Si ejecutamos nuestra especificación ahora, obtendremos un error de que el método no está definido:
 
+``` ruby
+$ bundle exec rspec
+F
+
+Failures:
+
+  1) StringCalculator.add given an empty string returns zero
+     Failure/Error: expect(StringCalculator.add("")).to eq(0)
+
+     NoMethodError:
+       undefined method `add' for StringCalculator:Class
+     # ./spec/string_calculator_spec.rb:8:in `block (4 levels) in <top (required)>'
+```
+
+Escribamos la cantidad mínima de código para que se cumpla esa especificación:
+
+``` ruby
+# lib/string_calculator.rb
+class StringCalculator
+
+  def self.add(input)
+    0
+  end
+end
+```
+
+Queremos escribir el código más simple posible que permita cumplir con las especificaciones, ¿recuerdas? Si ejecuta bundle exec rspec ahora, la especificación se cumple.
 
 
 
