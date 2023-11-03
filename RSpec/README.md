@@ -366,7 +366,12 @@ StringCalculator
         returns 117
 ```
 
+![DashDashFormatDocumentation](Imágenes/DashDashFormatDocumentation.png)
+
+
 En este tutorial, cubrimos los componentes básicos de RSpec. Cuando explore los comparadores integrados de RSpec (consulte las referencias a continuación), estará listo para comenzar a escribir sus primeras pruebas.
+
+El tutorial fue traducido desde el siguiente [enlace](https://semaphoreci.com/community/tutorials/getting-started-with-rspec)
 
 
 
