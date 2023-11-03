@@ -228,8 +228,138 @@ Queremos escribir el código más simple posible que permita cumplir con las esp
 
 ![EspecificacionExitosa](Imágenes/EspecificacionExitosa.png)
 
+## Hacia un código de trabajo
+Nuestra siguiente tarea es hacer que la calculadora funcione dado un solo número en una cadena. Escribamos algunos ejemplos de RSpec para eso:
 
+``` ruby
+# spec/string_calculator_spec.rb
+describe StringCalculator do
 
+  describe ".add" do
+    context "given '4'" do
+      it "returns 4" do
+        expect(StringCalculator.add("4")).to eql(4)
+      end
+    end
+
+    context "given '10'" do
+      it "returns 10" do
+        expect(StringCalculator.add("10")).to eql(10)
+      end
+    end
+  end
+end
+```
+
+Después de haber ejecutado las especificaciones, obtendremos algunos resultados útiles:
+
+``` ruby
+$ bundle exec rspec
+.FF
+
+Failures:
+
+  1) StringCalculator.add given '4' returns 4
+     Failure/Error: expect(StringCalculator.add("4")).to eq(4)
+
+       expected: 4
+            got: 0
+
+       (compared using ==)
+     # ./spec/string_calculator_spec.rb:14:in `block (4 levels) in <top (required)>'
+
+  2) StringCalculator.add given '10' returns 10
+     Failure/Error: expect(StringCalculator.add("10")).to eq(10)
+
+       expected: 10
+            got: 0
+
+       (compared using ==)
+     # ./spec/string_calculator_spec.rb:20:in `block (4 levels) in <top (required)>'
+
+Finished in 0.01715 seconds (files took 0.08149 seconds to load)
+3 examples, 2 failures
+```
+
+De nuevo, nuestro objetivo es hacerlos pasar:
+
+``` ruby
+# lib/string_calculator.rb
+class StringCalculator
+
+  def self.add(input)
+    if input.empty?
+      0
+    else
+      input.to_i
+    end
+  end
+end
+```
+
+Es hora de hacer que la calculadora realmente haga algunos cálculos. Escribamos algunos ejemplos basados en cadenas que contienen números separados por comas. Podría tener sentido introducir un contexto anidado, "dos números":
+
+``` ruby
+# spec/string_calculator_spec.rb
+describe StringCalculator do
+
+  describe ".add" do
+    context "two numbers" do
+      context "given '2,4'" do
+        it "returns 6" do
+          expect(StringCalculator.add("2,4")).to eql(6)
+        end
+      end
+
+      context "given '17,100'" do
+        it "returns 117" do
+          expect(StringCalculator.add("17,100")).to eql(117)
+        end
+      end
+    end
+  end
+end
+```
+Estas especificaciones fallan, como era de esperar. El resultado completo se omite aquí por motivos de brevedad, pero le recomiendo que ejecute sus especificaciones después de cada cambio en el código.
+
+Aquí hay una forma de hacer que se cumplan las especificaciones:
+``` ruby
+# lib/string_calculator.rb
+class StringCalculator
+
+  def self.add(input)
+    if input.empty?
+      0
+    else
+      numbers = input.split(",").map { |num| num.to_i }
+      numbers.inject(0) { |sum, number| sum + number }
+    end
+  end
+end
+```
+
+RSpec tiene más de una forma de mostrar su salida. Una alternativa muy popular al formato de puntos predeterminado es el formato de "documentation":
+
+``` ruby
+$ bundle exec rspec --format documentation
+
+StringCalculator
+  .add
+    given an empty string
+      returns zero
+    single numbers
+      given '4'
+        returns 4
+      given '10'
+        returns 10
+    two numbers
+      given '2,4'
+        returns 6
+      given '17,100'
+        returns 117
+```
+
+En este tutorial, cubrimos los componentes básicos de RSpec. Cuando explore los comparadores integrados de RSpec (consulte las referencias a continuación), estará listo para comenzar a escribir sus primeras pruebas.
 
 
 
