@@ -281,6 +281,8 @@ Finished in 0.01715 seconds (files took 0.08149 seconds to load)
 3 examples, 2 failures
 ```
 
+![Error](Imágenes/Error.png)
+
 De nuevo, nuestro objetivo es hacerlos pasar:
 
 ``` ruby
@@ -296,6 +298,8 @@ class StringCalculator
   end
 end
 ```
+
+![EjecucionExistosa](Imágenes/EjecucionExistosa.png)
 
 Es hora de hacer que la calculadora realmente haga algunos cálculos. Escribamos algunos ejemplos basados en cadenas que contienen números separados por comas. Podría tener sentido introducir un contexto anidado, "dos números":
 
@@ -322,6 +326,8 @@ end
 ```
 Estas especificaciones fallan, como era de esperar. El resultado completo se omite aquí por motivos de brevedad, pero le recomiendo que ejecute sus especificaciones después de cada cambio en el código.
 
+![NuevoError](Imágenes/NuevoError.png)
+
 Aquí hay una forma de hacer que se cumplan las especificaciones:
 ``` ruby
 # lib/string_calculator.rb
@@ -337,6 +343,7 @@ class StringCalculator
   end
 end
 ```
+![NuevaEjecucionExitosa](Imágenes/NuevaEjecucionExitosa.png)
 
 RSpec tiene más de una forma de mostrar su salida. Una alternativa muy popular al formato de puntos predeterminado es el formato de "documentation":
 
