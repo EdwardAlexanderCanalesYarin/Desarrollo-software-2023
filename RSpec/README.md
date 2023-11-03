@@ -130,7 +130,6 @@ Para ejecutar las specs, escriba:
 $ bundle exec rspec
 ```
 Haga esto ahora y su especificación fallará con el error StringCalculator constante no inicializado. Eso es de esperarse, ya que aún no hemos creado esa clase.
-Haga esto ahora y su especificación fallará con el error StringCalculator constante no inicializado. Eso es de esperarse, ya que aún no hemos creado esa clase.
 
 ![ErrorStringCalculator](Imágenes/ErrorStringCalculator.png)
 
