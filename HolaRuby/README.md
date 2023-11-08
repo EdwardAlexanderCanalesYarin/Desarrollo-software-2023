@@ -117,3 +117,58 @@ En la primera captura, observamos el resultado .FF.FFFF.FFF, esto significa que 
 En esta captura se observa que de las 12 pruebas, 9 fracasaron. Luego muestra cuales fueron las que fracasaron.
 
 Ahora escribamos código suficiente para que pasen las pruebas.
+``` ruby
+# Parte 1
+
+def sum arr
+  if arr.empty?
+    # Si el arraglo es vacío retorna 0
+    0
+  else
+    # Suma de forma iterativa los elementos de arr y la suma se va acumulando en suma
+    arr.inject(0) {|suma, numero| suma + numero}
+  end
+end
+
+def max_2_sum arr
+  if arr.empty?
+    # Si el arraglo es vacío retorna 0
+    0
+  elsif arr.size() == 1
+    # Si el arraglo tiene longitud 1 retorna ese elemento
+    arr[0]
+  else
+    maximo1 = arr.max
+    posicion = arr.index(maximo1)
+    # Eliminamos el elemento cuyo índice es posicion
+    arr.delete_at(posicion)
+    maximo2 = arr.max
+    # Retorna la suma de los 2 elementos mayores de arr
+    maximo1 + maximo2
+  end
+end
+
+def sum_to_n? arr, n
+  if arr.empty?
+    # Si el arraglo es vacío retorna false
+    false
+  elsif arr.size() == 1
+    # Si el arraglo tiene longitud 1 retorna false
+    false
+  else
+    # Suma de dos en dos elementos y cada suma lo compara con n
+    (0 .. arr.size()-2).each do |posicion1|
+      (posicion1 + 1 .. arr.size()-1).each do |posicion2|
+        if arr[posicion1] + arr[posicion2] == n
+          # Si dos elementos del arreglo suman n retorna true
+          return true
+        end
+      end
+    end
+    # En caso de que no exista dos elementos del arreglo que sumen n retorna false
+    false
+  end
+end
+```
+![EjecucionExitosaPruebaParte1](Image/EjecucionExitosaPruebaParte1.png)
+En la captura se observa que pasaron todas las pruebas (color verde)
