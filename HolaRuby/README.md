@@ -111,5 +111,9 @@ Ejecutamos la primera prueba (parte1_spec.rb) y obtemos:
 ![EjecucionPruebaParte1SinFormato](Image/EjecucionPruebaParte1SinFormato.png)
 ![EjecucionPruebaParte1ConFormato](Image/EjecucionPruebaParte1ConFormato.png)
 
-En la primera captura, observamos el resultado .FF.FFFF.FFF, esto significa que aquellas pruebas que pasaron están representadas por un punto verde (GREEN), las pruebas que fracasaron son representadas por la letra F en color rojo (RED). En la segunda captura, al usar _format documentation_ este resultado (.FF.FFFF.FFF) es más explícito (se visualiza mejor las pruebas que tuvieron éxito (color verde) y aquellas que fracasaron (color rojo).  Aquellas pruebas que pasaron fueron las que solo se pedían argumento(s) válido(s) (deberia ser definido), por otro lado, las que fracasaron fueron aquellas que no les bastaba únicamente tener los métodos definidos ```sum(arr), max_2_sum(arr) y sum_to_n?(arr,n)``` en el código principal sino también requieren funcionalidad de los métodos mencionados.
+En la primera captura, observamos el resultado .FF.FFFF.FFF, esto significa que aquellas pruebas que pasaron están representadas por un punto verde (GREEN), las pruebas que fracasaron son representadas por la letra F en color rojo (RED). En la segunda captura, al usar _format documentation_ este resultado (.FF.FFFF.FFF) es más explícito (se visualiza mejor las pruebas que tuvieron éxito (color verde) y aquellas que fracasaron (color rojo)).  Aquellas pruebas que pasaron fueron las que solo pedían argumento(s) válido(s) (deberia ser definido), por otro lado, las que fracasaron fueron aquellas que no les bastaba únicamente tener los métodos definidos ```sum(arr), max_2_sum(arr) y sum_to_n?(arr,n)``` en el código principal sino también requieren funcionalidad de los métodos mencionados.
 
+![ResumenResultadoEjecucionPruebasParte1](Image/ResumenResultadoEjecucionPruebasParte1.png)
+En esta captura se observa que de las 12 pruebas, 9 fracasaron. Luego muestra cuales fueron las que fracasaron.
+
+Ahora escribamos código suficiente para que pasen las pruebas.
