@@ -252,4 +252,37 @@ def binary_multiple_of_4? s
 end
 ```
 Ejecutamos la segunda prueba (parte2_spec.rb) y obtemos:
+![EjecucionFallidaPruebaParte2](Image/EjecucionFallidaPruebaParte2.png)
+Observamos que 3 de las 10 prueba fallaron (están de color rojo). Ahora vamos a escribir código suficiente para que las pruebas pasen.
+``` ruby
+def hello(name)
+  unless name.start_with?('"') && name.end_with('"')  # Acepta nombres entre comillas simples
+    'Hello, ' + name
+  end
+end
 
+def starts_with_consonant? s
+  first_character = s[/\A./] # Expresion regular para coincidir con el primer caracter de la cadena
+  result = first_character =~ /[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/
+  result != nil
+end
+
+def binary_multiple_of_4? s
+  if /^[01]+$/.match?(s)  # Devuelve verdadero si la cadena esta compuesta solo por ceros o unos
+    decimal = 0
+    exponente = 0
+    # Iterar sobre cada dígito del número binario en orden inverso
+    s.reverse.each_char do |digito|
+      decimal += digito.to_i * (2**exponente)
+      exponente += 1
+    end
+    decimal % 4 == 0
+  else
+    false
+  end
+end
+```
+![EjecucionExitosaPruebaParte2](Image/EjecucionExitosaPruebaParte2.png)
+En la captura se observa que pasaron todas las pruebas (color verde)
+
+## Parte 3
