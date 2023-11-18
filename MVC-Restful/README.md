@@ -83,7 +83,9 @@ Mandemos una solicitud POST usando curl:
 ![CurlPOST](Image/CurlPOST.png)
 Luego observemos la respuesta en la consola donde se está ejecutando nuestro programa
 ![http200](Image/http200.png)
+
 El estado 200 indica que la solicitud fue exitosa.
+
 ![CurlPOSTFramework](Image/CurlPOSTFramework.png)
 
 * read: Esta operación mostrará los detalles de una tarea específica, identificada por su ID.
@@ -99,7 +101,9 @@ get '/todos/:id' do
 end
 ```
 Este código nos muestra que cuando alguien envía una solicitud GET a la ruta '/todos/:id' con un ID válido, este bloque de código busca la tarea correspondiente en la base de datos y devuelve los detalles de esa tarea en formato JSON. Si no se encuentra la tarea, se devuelve un mensaje de error en formato JSON.
+
 ![ReadExitoso](Image/ReadExitoso.png)
+
 ![ReadFallido](Image/ReadFallido.png)
 
 * update: Esta operación permitirá modificar una tarea existente.
