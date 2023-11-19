@@ -152,6 +152,29 @@ Este código sirve para eliminar una tarea específica de la lista de tareas. Ut
 ![DeleteFramework](Image/DeleteFramework.png)
 
 ## Parte 2
+A continuación, creemos algunas rutas para que los usuarios puedan interactuar con la aplicación. Aquí hay una URL de ejemplo:
+```
+https://www.etsy.com/search?q=test#copy
+```
+Primero, especifica qué partes de la URL son componentes según la discusión sobre la forma de una URL. Consulta esta publicación de [IBM](https://www.ibm.com/docs/en/cics-ts/5.1?topic=concepts-components-url) que detalla los componentes de una URL.
+* https:// : Indica que se está utilizando el protocolo HTTPS para la comunicación segura a través de la web.
+* etsy :  Nombre del dominio o sitio web que se está accediendo
+* 443 : Puerto estándar para conexiones HTTPS. Indica el canal a través del cual se establecerá la comunicación segura.
+* /search : Parte de la URL que especifica la ubicación específica del recurso dentro del sitio web. En este caso, "/search" indica que estás accediendo a una página o recurso dentro de Etsy relacionado con la búsqueda.
+* q=test : Parametro de consulta (query parameter). Es parte de la URL que se utiliza para enviar datos o parámetros al servidor. En este caso, "q=test" indica que se está realizando una búsqueda en Etsy con el término "test".
+* copy : El fragmento es una parte opcional de la URL que se utiliza para navegar a una sección específica dentro de una página web.
+
+En Sinatra, el enrutamiento y el controlador están acoplados, lo que facilita la declaración de rutas. Declaramos algunas rutas RESTful para que podamos ver una lista de tareas pendientes, crear una tarea pendiente, editar una tarea pendiente y eliminar una tarea pendiente. ¿Qué acciones RESTful deberíamos utilizar para estos?
+
+Deberíamos utilizar operaciones como ver una lista de elementos, crear nuevos elementos, actualizar elementos existentes y eliminar elementos se ejecutan utilizando las correspondientes herramientas de solicitud, que son GET, POST, PUT y DELETE. Estas acciones fueron demostradas previamente .
+
+## Parte 3
+Dado que HTTP es un protocolo RESTful, cada solicitud debe ir seguida de una respuesta, por lo que debemos devolver una vista o redirigir a cada solicitud. Usaremos JSON para las respuestas, que es similar a lo que hacen muchas API. ¿Hacia dónde debería ir la respuesta?.
+
+Generalmente tenemos dos enfoques comunes para dirigir las respuestas.
+
+* Podemos enviar JSON como respuesta directa: En este enfoque, después de procesar una solicitud, simplemente envías una respuesta JSON directamente al cliete.
+* Redirigir a una vista JSON: En lugar de enviar JSON directamente, podemos redirigir la solicitud a una vista específica (template) que formatee la respuesta como JSON y la envíe de vuelta al cliente. Esto puede ser útil si deseamos aplicar algún formato o lógica adicional a la respuesta antes de enviarla.
 
 
 
