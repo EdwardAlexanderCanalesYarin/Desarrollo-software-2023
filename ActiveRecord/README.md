@@ -18,3 +18,17 @@ Hemos configurado las pruebas para que inicialmente se omitan todas las pruebas.
 
 ![Specify1](Image/Specify1.png)
 
+EScribimos código necesario para que pase la primera prueba (debe estar en color verde)
+``` ruby
+def self.any_candice
+    # Tu codigo aqui para devolver todos los clientes cuyo nombre sea Candice
+    # probablemente algo asi:  Customer.where(....)
+    Customer.where(first: 'Candice')
+  end
+```
+
+![PrimeraPruebaExitosa](Image/PrimeraPruebaExitosa.png)
+
+![PrimeraPruebaExitosa1](Image/PrimeraPruebaExitosa1.png)
+
+
