@@ -99,3 +99,16 @@ end
 ![PruebasExitosas](Image/PruebasExitosas.png)
 
 ![PruebasExitosas1](Image/PruebasExitosas1.png)
+
+Observamos que todas las pruebas pasaron (están de color verde)
+
+Luego, usamos la herramienta guard con lo cual nos muestra lo siguiente: 
+
+![Guard](Image/Guard.png)
+
+En una ventana del editor, realiza un cambio trivial en el specfile o en activerecord_practica.rb, como insertar un espacio, y guarda el archivo. En uno o dos segundos, la ventana de terminal que ejecuta Guard debería cobrar vida cuando Guard intenta volver a ejecutar las pruebas.
+
+![BundleExecGuard](Image/BundleExecGuard.png)
+
+![BundleExecGuard1](Image/BundleExecGuard1.png)
+
