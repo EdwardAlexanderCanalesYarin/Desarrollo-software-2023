@@ -33,3 +33,6 @@ def self.any_candice
 
 Seguimos escribiendo código necesario para pasar todas las pruebas y ejecutamos el comando ```bundle exec rspec spec/activerecord_practice_spec.rb ```
 
+![PruebasExitosas](Image/PruebasExitosas.png)
+
+![PruebasExitosas1](Image/PruebasExitosas1.png)
