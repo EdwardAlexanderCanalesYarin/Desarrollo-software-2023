@@ -29,6 +29,6 @@ def self.any_candice
 
 ![PrimeraPruebaExitosa](Image/PrimeraPruebaExitosa.png)
 
-![PrimeraPruebaExitosa1](Image/PrimeraPruebaExitosa1.png)
+![PrimeraPruebaExistosa1](Image/PrimeraPruebaExistosa1.png)
 
 
