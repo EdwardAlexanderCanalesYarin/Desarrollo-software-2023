@@ -20,10 +20,11 @@ En JavaScript, el entorno de ejecución de JavaScript se ejecuta en un solo hilo
  * NaN (Number)
  * "" (String)
 Sin embargo, estos valores no son necesariamente iguales entre sí.
+
  ¡Las comparaciones booleanas son complicadas!
-- 1) Recomendamos usar métodos de comparación integrados en lugar de == o ===
-- 2) Evita comparar diferentes tipos.
-- 3) Convierte explícitamente los tipos a Booleanos cuando sea necesario.
+1) Recomendamos usar métodos de comparación integrados en lugar de == o ===
+2) Evita comparar diferentes tipos.
+3) Convierte explícitamente los tipos a Booleanos cuando sea necesario.
 
  ### ```Arrays```
 
