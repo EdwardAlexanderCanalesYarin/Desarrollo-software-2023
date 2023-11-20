@@ -105,10 +105,25 @@ Como puede ver, generar esta excepción específica no nos impidió poder maneja
 * No todos los idiomas admiten generar excepciones desde un controlador de excepciones.
 * En la mayoría de los idiomas, generar una nueva excepción desde un controlador hará que la excepción original se pierda para siempre, por lo que es mejor volver a generar el mismo objeto de excepción (como en el ejemplo anterior) para evitar perder la pista de la causa original de la excepción. error. (A menos que esté haciendo esto intencionalmente).
 
-### Never ```escue Exception```
+### Never ```rescue Exception```
 
+Es decir, nunca intente implementar un controlador general para el tipo de excepción base. Rescatar o detectar todas las excepciones al por mayor nunca es una buena idea en ningún idioma, ya sea globalmente en un nivel de aplicación base o en un pequeño método enterrado que se usa solo una vez. No queremos rescatar Exception porque ofuscará lo que realmente sucedió, dañando tanto la mantenibilidad como la extensibilidad. Podemos perder una gran cantidad de tiempo depurando cuál es el problema real, cuando podría ser tan simple como un error de sintaxis:
 
+``` ruby
+# main.rb
+def bad_example
+  i_might_raise_exception!
+rescue Exception
+  nah_i_will_always_be_here_for_you
+end
 
+# elsewhere.rb
+def i_might_raise_exception!
+  retrun do_a_lot_of_work!
+end
+```
+
+Es posible que hayas notado el error en el ejemplo anterior; ```return``` está mal escrito. Aunque los editores modernos brindan cierta protección contra este tipo específico de error de sintaxis, este ejemplo ilustra cómo el ```rescue Exception``` daña nuestro código. En ningún momento se aborda el tipo real de excepción (en este caso, ```NoMethodError```), ni se expone al desarrollador, lo que puede hacer que perdamos mucho tiempo dando vueltas en círculos.
 
 
 
