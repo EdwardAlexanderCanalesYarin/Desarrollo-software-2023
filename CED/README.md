@@ -9,8 +9,20 @@ Por lo tanto, las excepciones requieren un tratamiento especial y una excepción
 
 Con el tiempo, estos errores, y muchos otros (que tal vez no fueron tan dramáticos, pero sí catastróficos para los involucrados) contribuyeron a la impresión de que las excepciones son malas.
 
-Pero las excepciones son un elemento fundamental de la programación moderna; existen para mejorar nuestro software. En lugar de temer las excepciones, deberíamos aceptarlas y aprender a beneficiarnos de ellas. En este artículo, *analizaremos cómo gestionar las excepciones de forma elegante y utilizarlas para escribir código limpio que sea más fácil de mantener*.
+Pero las excepciones son un elemento fundamental de la programación moderna; existen para mejorar nuestro software. En lugar de temer las excepciones, deberíamos aceptarlas y aprender a beneficiarnos de ellas. En este artículo, **analizaremos cómo gestionar las excepciones de forma elegante y utilizarlas para escribir código limpio que sea más fácil de mantener**.
 
+### Exception Handling: It’s a Good Thing
+Con el auge de la programación orientada a objetos (POO), el soporte de excepciones se ha convertido en un elemento crucial de los lenguajes de programación modernos. Hoy en día, la mayoría de los lenguajes cuentan con un sólido sistema de manejo de excepciones. Por ejemplo, Ruby proporciona el siguiente patrón típico:
+``` ruby
+begin
+  do_something_that_might_not_work!
+rescue SpecificError => e
+  do_some_specific_error_clean_up
+  retry if some_condition_met?
+ensure
+  this_will_always_be_executed
+end
+```
 
 
 
