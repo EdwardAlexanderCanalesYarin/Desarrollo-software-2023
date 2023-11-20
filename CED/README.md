@@ -41,6 +41,80 @@ Dicho esto, profundicemos en estas prácticas y veamos cómo cada una de ellas a
 
 Nota: Presentaremos ejemplos de Ruby, pero todas las construcciones demostradas aquí tienen equivalentes en los lenguajes POO más comunes.
 
+### Always create your own ```ApplicationError``` hierarchy
+La mayoría de los lenguajes vienen con una variedad de clases de excepción, organizadas en una jerarquía de herencia, como cualquier otra clase de programación orientada a objetos. Para preservar la legibilidad, mantenibilidad y extensibilidad de nuestro código, es una buena idea **crear nuestro propio subárbol de excepciones específicas de la aplicación que extiendan la clase de excepción base**. Invertir algo de tiempo en estructurar lógicamente esta jerarquía puede resultar extremadamente beneficioso. Por ejemplo:
+
+``` ruby
+class ApplicationError < StandardError; end
+
+# Validation Errors
+class ValidationError < ApplicationError; end
+class RequiredFieldError < ValidationError; end
+class UniqueFieldError < ValidationError; end
+
+# HTTP 4XX Response Errors
+class ResponseError < ApplicationError; end
+class BadRequestError < ResponseError; end
+class UnauthorizedError < ResponseError; end
+# ...
+```
+![SubarbolJerarquia](Image/SubarbolJerarquia.png)
+
+Tener un paquete de excepciones completo y extensible para nuestra aplicación facilita mucho el manejo de estas situaciones específicas de la aplicación. Por ejemplo, podemos decidir qué excepciones manejar de una manera más natural. Esto no sólo aumenta la legibilidad de nuestro código, sino que también aumenta la capacidad de mantenimiento de nuestras aplicaciones y bibliotecas (gemas).
+
+Desde la perspectiva de la legibilidad, es mucho más fácil de leer:
+
+``` ruby
+rescue ValidationError => e
+```
+
+Que leer:
+
+
+``` ruby
+rescue RequiredFieldError, UniqueFieldError, ... => e
+```
+
+Desde la perspectiva de mantenibilidad, digamos, por ejemplo, que estamos implementando una API JSON y hemos definido nuestro propio ```ClientError``` con varios subtipos, para usarlo cuando un cliente envía una solicitud incorrecta. Si surge alguno de estos, la aplicación debe representar la representación JSON del error en su respuesta. Será más fácil arreglar o agregar lógica a un solo bloque que maneja ```ClientError```s en lugar de recorrer cada posible error del cliente e implementar el mismo código de controlador para cada uno. En términos de extensibilidad, si luego tenemos que implementar otro tipo de error del cliente, podemos confiar en que ya se manejará adecuadamente aquí.
+
+Además, esto no nos impide implementar un manejo especial adicional para errores específicos del cliente anteriormente en la pila de llamadas, o alterar el mismo objeto de excepción en el camino:
+
+
+``` ruby
+# app/controller/pseudo_controller.rb
+def authenticate_user!
+  fail AuthenticationError if token_invalid? || token_expired?
+  User.find_by(authentication_token: token)
+rescue AuthenticationError => e
+  report_suspicious_activity if token_invalid?
+  raise e
+end
+
+def show
+  authenticate_user!
+  show_private_stuff!(params[:id])
+rescue ClientError => e
+  render_error(e)
+end
+```
+
+Como puede ver, generar esta excepción específica no nos impidió poder manejarla en diferentes niveles, modificarla, volver a generarla y permitir que el controlador de la clase principal la resolviera.
+
+**Dos cosas a tener en cuenta aquí:**
+
+* No todos los idiomas admiten generar excepciones desde un controlador de excepciones.
+* En la mayoría de los idiomas, generar una nueva excepción desde un controlador hará que la excepción original se pierda para siempre, por lo que es mejor volver a generar el mismo objeto de excepción (como en el ejemplo anterior) para evitar perder la pista de la causa original de la excepción. error. (A menos que esté haciendo esto intencionalmente).
+
+### Never ```escue Exception```
+
+
+
+
+
+
+
+
+
 ## Error Handling and Debugging Techniques in JavaScript: Best Practices
 Leemos el [tutorial para Java Script](https://codedamn.com/news/javascript/error-handling-debugging) y respondemos a la pregunta ¿Qué diferencias encuentras en el tutorial para Ruby y el tutorial para Java Script?
 
