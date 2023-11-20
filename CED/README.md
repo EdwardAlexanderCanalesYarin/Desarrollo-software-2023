@@ -23,8 +23,23 @@ ensure
   this_will_always_be_executed
 end
 ```
+No hay nada malo con el código anterior. Pero el uso excesivo de estos patrones provocará errores en el código y no necesariamente será beneficioso. Del mismo modo, hacer un mal uso de ellos puede causar mucho daño a su código base, haciéndolo frágil u ofuscando la causa de los errores.
 
+El estigma que rodea a las excepciones a menudo hace que los programadores se sientan perdidos. Es una realidad que las excepciones no se pueden evitar, pero a menudo se nos enseña que deben abordarse con rapidez y decisión. Como veremos, esto no es necesariamente cierto. Más bien, deberíamos aprender el arte de manejar las excepciones con elegancia, haciéndolas armoniosas con el resto de nuestro código.
 
+A continuación se presentan algunas prácticas recomendadas que le ayudarán a aceptar excepciones y hacer uso de ellas y de sus capacidades para mantener su código mantenible, extensible y legible:
+
+* Mantenibilidad: nos permite encontrar y corregir fácilmente nuevos errores, sin temor a romper la funcionalidad actual, introducir más errores o tener que abandonar el código por completo debido al aumento de la complejidad con el tiempo.
+* Extensibilidad: Nos permite agregar fácilmente a nuestra base de código, implementando requisitos nuevos o modificados sin romper la funcionalidad existente. La extensibilidad proporciona flexibilidad y permite un alto nivel de reutilización de nuestra base de código.
+* Legibilidad: nos permite leer fácilmente el código y descubrir su propósito sin perder demasiado tiempo investigando. Esto es fundamental para descubrir errores y código no probado de manera eficiente.
+
+Estos elementos son los factores principales de lo que podríamos llamar limpieza o calidad, que no es una medida directa en sí misma, sino el efecto combinado de los puntos anteriores, como se demuestra en este cómic:
+
+![Comic](Image/Comic.png)
+
+Dicho esto, profundicemos en estas prácticas y veamos cómo cada una de ellas afecta esas tres medidas.
+
+Nota: Presentaremos ejemplos de Ruby, pero todas las construcciones demostradas aquí tienen equivalentes en los lenguajes POO más comunes.
 
 ## Error Handling and Debugging Techniques in JavaScript: Best Practices
 Leemos el [tutorial para Java Script](https://codedamn.com/news/javascript/error-handling-debugging) y respondemos a la pregunta ¿Qué diferencias encuentras en el tutorial para Ruby y el tutorial para Java Script?
