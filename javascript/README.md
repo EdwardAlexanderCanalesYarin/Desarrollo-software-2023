@@ -4,10 +4,13 @@
 En JavaScript, el entorno de ejecución de JavaScript se ejecuta en un solo hilo. Las razones importantes por las cuales las operaciones de red son asíncronas en JavaScrip son: Evitar el bloqueo del hilo principal, mejorar la eficiencia y la capacidad de respuesta, manejar múltiples operaciones concurrentes, programación no bloqueante y manejar retrasos de red.
 
 * ```En Javascript, queremos realizar acciones tras una operación/solicitud de red completa. ¿Qué paradigma de programación hace esto posible?```
+El paradigma de programación que permite realizar acciones tras una operación o solicitud de red completa de manera eficiente es el paradigma programación asíncrona. Se basa en la ejecución de código sin bloquear el hilo principal, con lo cual el programa puede continuar ejecutándose mientras espera que se complete una operación asíncrona, como una solicitud de red.
 
 * ```¿Javascript proporciona soporte limitado para la herencia a través de qué mecanismo?```
+Los prototipos son el mecanismo que usa JavaScript para lograr la herencia. Cada objeto en JavaScript tiene un prototipo, y cuando se busca una propiedad en un objeto y no se encuentra, JavaScript busca la propiedad en su prototipo, y así sucesivamente en la cadena de prototipos hasta que se encuentra la propiedad o se llega al final de la cadena.
   
 * ```¿Qué es el DOM? ¿Qué librería nos ayuda a usar Javascript para manipular el DOM?```
+El DOM (Document Object Model) es una interfaz de programación para documentos HTML y XML. El DOM representa la estructura lógica de un documento y la forma en que los programas pueden acceder, modificar y manipular dinámicamente el contenido de un documento web. **El DOM organiza la estructura del documento en una jerarquía de nodos**, donde **cada nodo representa** una parte del documento, como **elementos HTML, atributos, texto, etc.**
 
  ## ¿Qué haría Javascript?
  ### ```Booleano```
