@@ -23,11 +23,61 @@ El DOM (Document Object Model) es una interfaz de programación para documentos 
  * NaN (Number)
  * "" (String)
 Sin embargo, estos valores no son necesariamente iguales entre sí.
+Para verificar tu comprensión, completa estas preguntas:
+* ```undefined == null```
+undefined es igual a null, por lo tanto devolverá true
 
+* ```NaN == NaN```
+NaN no es igual a NaN, por lo tanto devolverá false
+
+* ```null == false```
+null no es igual a false, por lo tanto devolverá false
+
+* ```0 == false```
+0 es igual a false, por lo tanto devolverá true
+  
+* ```"" == false```
+Una cadena vacía es igual a false, por lo tanto devolverá true
+
+```javascript
+// undefined es igual a null
+console.log(undefined == null); // Imprimirá true
+
+// NaN no es igual a NaN
+console.log(NaN == NaN); // Imprimirá false
+
+// null no es igual a false
+console.log(null == false); // Imprimirá false
+
+// 0 es igual a false
+console.log(0 == false); // Imprimirá true
+
+// Una cadena vacía es igual a false
+console.log("" == false); // Imprimirá true
+```
+![Booleanos](Image/Booleanos.png)
  ¡Las comparaciones booleanas son complicadas!
 1) Recomendamos usar métodos de comparación integrados en lugar de == o ===
 2) Evita comparar diferentes tipos.
 3) Convierte explícitamente los tipos a Booleanos cuando sea necesario.
+
+Usando métodos de comparación integrados
+```javascript
+// undefined es igual a null
+console.log(Object.is(undefined, null)); // Imprimirá false
+
+// NaN no es igual a NaN
+console.log(Number.isNaN(NaN)); // Imprimirá true
+
+// null no es igual a false
+console.log(Object.is(null, false)); // Imprimirá false
+
+//0 es igual a false
+console.log(Boolean(0) === false); // Imprimirá true
+
+// Una cadena vacía es igual a false
+console.log(Boolean("") === false); // Imprimirá true
+```
 
  ### ```Arrays```
 
