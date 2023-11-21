@@ -170,6 +170,66 @@ console.log(greatestNumber(numbers)); // Imprimirá 9
 ![Funcion](Image/Funcion.png)
 
  ### ```Clases```
+ ```javascript
+// Clase Pokémon
+class Pokemon {
+  constructor(HP, ataque, defensa) {
+    this.HP = HP;
+    this.ataque = ataque;
+    this.defensa = defensa;
+    this.movimiento = "";
+    this.nivel = 1;
+    this.tipo = "";
+  }
 
+  flight() {
+    if (!this.movimiento) {
+      throw new Error("No se especifica ningún movimiento.");
+    }
+    console.log("¡Volando!");
+  }
+
+  canFly() {
+    if (!this.tipo) {
+      throw new Error("No se especifica ningún tipo.");
+    }
+    return this.tipo.includes("volar");
+  }
+}
+
+// Clase Charizard (hereda de Pokémon)
+class Charizard extends Pokemon {
+  constructor(HP, ataque, defensa, movimiento) {
+    super(HP, ataque, defensa);
+    this.movimiento = movimiento;
+    this.tipo = "fuego/volar";
+  }
+
+  fight() {
+    if (this.movimiento) {
+      console.log(`Utilizando el movimiento: ${this.movimiento}`);
+      return this.ataque;
+    } else {
+      throw new Error("No se especifica ningún movimiento.");
+    }
+  }
+}
+
+const charizardInstance = new Charizard(80, 120, 70, "Lanzallamas");
+console.log(charizardInstance);
+charizardInstance.flight();
+console.log("¿Puede volar?", charizardInstance.canFly());
+
+try {
+  const charizardWithoutMove = new Charizard(80, 120, 70);
+  charizardWithoutMove.fight(); // Esto debería arrojar un error
+} catch (error) {
+  console.error(error.message);
+}
+ ```
+ El resultado es el siguiente
+
+
+![Clases](Image/Clases.png)
  
   
