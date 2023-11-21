@@ -127,6 +127,47 @@ La variable bar es una funcion con un parametro (y), primero la funcion f1 recib
 ![Clausuras](Image/Clausuras.png)
 
  ### ```Algoritmos```
+ La siguiente función encuentra el mayor número dentro de un array, pero tiene una eficiencia de O(N2). Reescribe la función para que se convierta en una O(N) más rápida:
+
+ ```javascript
+function greatestNumber(array) {
+  for (let i of array) {
+    let isIValTheGreatest = true;
+    for (let j of array) {
+      if (j > i) {
+        isIValTheGreatest = false;
+      }
+    }
+    if (isIValTheGreatest) {
+      return i;
+    }
+  }
+}
+```
+La función reescriba para mejorar la eficiencia, es decir que tenga O(N):
+
+ ```javascript
+function greatestNumber(array) {
+    if (array.length === 0) {
+      return undefined; 
+    }
+  
+    let maxNumber = array[0]; 
+  
+    for (let i = 1; i < array.length; i++) {
+      if (array[i] > maxNumber) {
+        maxNumber = array[i]; 
+      }
+    }
+    return maxNumber;
+}
+
+// ejemplo de uso de la funcion
+const numbers = [3, 7, 2, 9, 5];
+console.log(greatestNumber(numbers)); // Imprimirá 9
+ ```
+
+![Funcion](Image/Funcion.png)
 
  ### ```Clases```
   
