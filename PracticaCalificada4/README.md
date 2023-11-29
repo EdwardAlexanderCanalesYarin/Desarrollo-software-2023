@@ -68,3 +68,6 @@ try {
  console.error(error.message);
 }
 ```
+
+El resultado es el siguiente
+![Clases](Image/Clases.png)
