@@ -20,6 +20,38 @@ Quitamos los comentarios y ejecutamos nuevamente el servidor.
 ![QuitarComentarios](Image/QuitarComentarios.png)
 
 ![EjecucionExitosa](Image/EjecucionExitosa.png)
+El error ha sido corregido. Ahora visualizamos las películas y otros datos. También podemos agregar nuevas películas.
+
+## Vistas parciales, validaciones y filtros
+### Vistas parciales
+Una vista parcial es el nombre de Rails para una parte reutilizable de una vista. Cuando debe aparecer contenido similar en diferentes vistas, colocar ese contenido en una parte e “incluirlo” en archivos separados ayuda a DRY la repetición.
+
+Creamos el archivo _movie.html.erb en el directorio app/views/movies e incluimos el siguiente fragmento de codigo (actuará como una vista parcial).
+
+``` ruby
+<div class="row">
+    <div class="col-8"> <%= link_to movie.title, movie_path(movie) %> </div>
+    <div class="col-2"> <%= movie.rating %> </div>
+    <div class="col-2"> <%= movie.release_date.strftime('%F') %> </div>
+</div>
+```
+Luego cambiaremos el formato de html.haml a html.erb del archivo ```index.html.haml``` y agregamos el siguiente fragmento de codigo en el archivo ```index.html.erb```
+
+``` ruby
+<!--  ...other code from index.html.erb here... -->
+<div class="row bg-dark text-white">
+    <div class="col-6 text-center">Title and More Info</div>
+    <div class="col-2 text-center">Rating</div>
+    <div class="col-4 text-center">Release Date</div>
+</div>
+<%= render partial: 'movie', collection: @movies %>
+```
+
+Ejecutamos nuevamente el servidor y se sigue observando las tablas y no arroja ningún error
+
+![VistaParcial](Image/VistaParcial.png)
+
+
 
 
 
