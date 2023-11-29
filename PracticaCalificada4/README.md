@@ -273,4 +273,67 @@ Para ello vamos a modificar el archivo ```'app/views/movies/index.html.erb'```. 
 
 c) Modifica la acción Index del controlador para que devuelva las películas ordenadas alfabéticamente por título, en vez de por fecha de lanzamiento. No intentes ordenar el resultado de la llamada que hace el controlador a la base de datos. Los gestores de bases de datos ofrecen formas para especificar el orden en que se quiere una lista de resultados y, gracias al fuerte acoplamiento entre ActiveRecord y el sistema gestor de bases de datos (RDBMS) que hay debajo, los métodos find y all de la biblioteca de ActiveRecord en Rails ofrece una manera de pedirle al RDBMS que haga esto.
 
+
+
 d) Simula que no dispones de ese fuerte acoplamiento de ActiveRecord, y que no puedes asumir que el sistema de almacenamiento que hay por debajo pueda devolver la colección de ítems en un orden determinado. Modifique la acción Index del controlador para que devuelva las películas ordenadas alfabéticamente por título. Utiliza el método sort del módulo Enumerable de Ruby.
+
+Para ello vamos a modificar el archivo ```'app/controllers/movies_controller.rb'```. Vamos a reemplazar ```@movies = Movie.all``` del metodo index por:  
+
+```
+@movies = Movie.order(:title).limit(26)
+```
+
+``` ruby
+class MoviesController < ApplicationController
+  def index
+    # @movies = Movie.all
+    @movies = Movie.order(:title).limit(26)
+  end
+  def show
+    id = params[:id] # retrieve movie ID from URI route
+    @movie = Movie.find(id) # look up movie by unique ID
+    # will render render app/views/movies/show.html.haml by default
+  end
+  def new
+    @movie = Movie.new
+  end
+  def create
+    if (@movie = Movie.create(movie_params))
+      redirect_to movies_path, :notice => "#{@movie.title} created."
+    else
+      flash[:alert] = "Movie #{@movie.title} could not be created: " +
+        @movie.errors.full_messages.join(",")
+      render 'new'
+    end
+  end
+  def edit
+    @movie = Movie.find params[:id]
+  end
+  def update
+    @movie = Movie.find params[:id]
+    if (@movie.update_attributes(movie_params))
+      redirect_to movie_path(@movie), :notice => "#{@movie.title} updated."
+    else
+      flash[:alert] = "#{@movie.title} could not be updated: " +
+        @movie.errors.full_messages.join(",")
+      render 'edit'
+    end
+  end
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to movies_path, :notice => "#{@movie.title} deleted."
+  end
+  private
+  def movie_params
+    params.require(:movie)
+    params[:movie].permit(:title,:rating,:release_date)
+  end
+end
+```
+
+Ejecutamos nuevamente el servidor y obtenemos: 
+
+![OrdenadoPorTitle](Image/OrdenadoPorTitle.png)
+
+
