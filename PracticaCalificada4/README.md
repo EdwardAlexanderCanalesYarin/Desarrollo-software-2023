@@ -166,3 +166,50 @@ try {
 
 El resultado es el siguiente
 ![Clases](Image/Clases.png)
+
+## Pregunta
+Modifique la lista de películas de la siguiente manera. Cada modificación va a necesitar que realice un cambio en una capa de abstracción diferente.
+a) Modifica la vista Index para incluir el número de fila de cada fila en la tabla de películas.
+Para ello vamos a modificar el archivo ```'app/views/movies/index.html.erb'```
+
+
+``` ruby
+<%= link_to 'Add new movie', new_movie_path %>
+
+<h2>All Movies</h2>
+
+<table id="movies">
+  <thead>
+    <tr>
+      <th></th>         # Agremos esta linea para tener una columna vacia al lado izquierdo
+      <th>Movie Title</th>
+      <th>Rating</th>
+      <th>Release Date</th>
+      <th>More Info</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.id %></td>      # Agregamos esta linea para visualizar el número de fila de cada fila en la tabla de películas
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.release_date %></td>
+        <td><%= link_to "More about #{movie.title}", movie_path(movie) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="row bg-dark text-white">
+  <div class="col-6 text-center">Title and More Info</div>
+  <div class="col-2 text-center">Rating</div>
+  <div class="col-4 text-center">Release Date</div>
+</div>
+
+<%= render partial: 'movie', collection: @movies %>
+```
+
+Ejecutamos el servidor y obtenemos lo siguiente: 
+![NumeroFilasViewsMovies](Image/NumeroFilasViewsMovies.png)
