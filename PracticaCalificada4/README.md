@@ -169,9 +169,9 @@ El resultado es el siguiente
 
 ## Pregunta
 Modifique la lista de películas de la siguiente manera. Cada modificación va a necesitar que realice un cambio en una capa de abstracción diferente.
-a) Modifica la vista Index para incluir el número de fila de cada fila en la tabla de películas.
-Para ello vamos a modificar el archivo ```'app/views/movies/index.html.erb'```
 
+a) Modifica la vista Index para incluir el número de fila de cada fila en la tabla de películas.
+Para ello vamos a modificar el archivo ```'app/views/movies/index.html.erb'```. Agregamos ```<th></th>``` para tener una columna vacia al lado izquierdo, agregamos ```<td><%= movie.id %></td>``` para visualizar el número de fila de cada fila en la tabla de películas.
 
 ``` ruby
 <%= link_to 'Add new movie', new_movie_path %>
@@ -181,7 +181,7 @@ Para ello vamos a modificar el archivo ```'app/views/movies/index.html.erb'```
 <table id="movies">
   <thead>
     <tr>
-      <th></th>         # Agremos esta linea para tener una columna vacia al lado izquierdo
+      <th></th>         
       <th>Movie Title</th>
       <th>Rating</th>
       <th>Release Date</th>
@@ -192,7 +192,7 @@ Para ello vamos a modificar el archivo ```'app/views/movies/index.html.erb'```
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <td><%= movie.id %></td>      # Agregamos esta linea para visualizar el número de fila de cada fila en la tabla de películas
+        <td><%= movie.id %></td>      
         <td><%= movie.title %></td>
         <td><%= movie.rating %></td>
         <td><%= movie.release_date %></td>
@@ -213,3 +213,64 @@ Para ello vamos a modificar el archivo ```'app/views/movies/index.html.erb'```
 
 Ejecutamos el servidor y obtenemos lo siguiente: 
 ![NumeroFilasViewsMovies](Image/NumeroFilasViewsMovies.png)
+
+b) Modifica la vista Index para que cuando se sitúe el ratón sobre una fila de la tabla, dicha fila cambie temporalmente su color de fondo a amarillo u otro color.
+Para ello vamos a modificar el archivo ```'app/views/movies/index.html.erb'```. Agregamos: 
+
+```
+<style>
+    .alternar:hover{ background-color:#FFFF00;}
+</style>
+```
+```
+<tr class="alternar">
+```
+
+``` ruby
+<%= link_to 'Add new movie', new_movie_path %>
+
+<h2>All Movies</h2>
+
+<table id="movies">
+  <thead>
+  <style>
+    .alternar:hover{ background-color:#FFFF00;}
+  </style>
+    <tr>
+      <th></th>
+      <th>Movie Title</th>
+      <th>Rating</th>
+      <th>Release Date</th>
+      <th>More Info</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr class="alternar">
+        <td><%= movie.id %></td>
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.release_date %></td>
+        <td><%= link_to "More about #{movie.title}", movie_path(movie) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="row bg-dark text-white">
+  <div class="col-6 text-center">Title and More Info</div>
+  <div class="col-2 text-center">Rating</div>
+  <div class="col-4 text-center">Release Date</div>
+</div>
+
+<%= render partial: 'movie', collection: @movies %>
+```
+![FilaCambiaDeColor1](Image/FilaCambiaDeColor1.png)
+
+![FilaCambiaDeColor2](Image/FilaCambiaDeColor2.png)
+
+
+c) Modifica la acción Index del controlador para que devuelva las películas ordenadas alfabéticamente por título, en vez de por fecha de lanzamiento. No intentes ordenar el resultado de la llamada que hace el controlador a la base de datos. Los gestores de bases de datos ofrecen formas para especificar el orden en que se quiere una lista de resultados y, gracias al fuerte acoplamiento entre ActiveRecord y el sistema gestor de bases de datos (RDBMS) que hay debajo, los métodos find y all de la biblioteca de ActiveRecord en Rails ofrece una manera de pedirle al RDBMS que haga esto.
+
+d) Simula que no dispones de ese fuerte acoplamiento de ActiveRecord, y que no puedes asumir que el sistema de almacenamiento que hay por debajo pueda devolver la colección de ítems en un orden determinado. Modifique la acción Index del controlador para que devuelva las películas ordenadas alfabéticamente por título. Utiliza el método sort del módulo Enumerable de Ruby.
