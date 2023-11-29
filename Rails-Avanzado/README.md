@@ -14,7 +14,7 @@ El error mostrado es ```ActiveRecord::StatementInvalid in MoviesController#index
 ![NuevoError](Image/NuevoError.png)
 Visualizamos que el error ha cambiado, ahora es un error de sintaxis. Este problema se encuentra en el archivo ```app/models/movie.rb```
 
-![CorreccionDeMovie](Image/CorreccionDeMovie.png)
+![CorrecionDeMovie](Image/CorrecionDeMovie.png)
 Quitamos los comentarios y ejecutamos nuevamente el servidor.
 
 ![QuitarComentarios](Image/QuitarComentarios.png)
