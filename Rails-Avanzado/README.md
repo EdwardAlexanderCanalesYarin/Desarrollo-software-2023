@@ -51,8 +51,40 @@ Ejecutamos nuevamente el servidor y se sigue observando las tablas y no arroja n
 
 ![VistaParcial](Image/VistaParcial.png)
 
+### Validaciones
+Las validaciones de modelos, al igual que las migraciones, se expresan en un mini-DSL integrado en Ruby, como muestra en el siguiente código. Escribe el código siguiente en el código dado en ```app/models/movie.rb```
 
+``` ruby
+class Movie < ActiveRecord::Base
+    def self.all_ratings ; %w[G PG PG-13 R NC-17] ; end #  shortcut: array of strings
+    validates :title, :presence => true
+    validates :release_date, :presence => true
+    validate :released_1930_or_later # uses custom validator below
+    validates :rating, :inclusion => {:in => Movie.all_ratings},
+        :unless => :grandfathered?
+    def released_1930_or_later
+        errors.add(:release_date, 'must be 1930 or later') if
+        release_date && release_date < Date.parse('1 Jan 1930')
+    end
+    @@grandfathered_date = Date.parse('1 Nov 1968')
+    def grandfathered?
+        release_date && release_date < @@grandfathered_date
+    end
+end
+```
 
+y comprueba tus resultados en la consola, para esro usaremos la consola de comandos de ruby, ejecutaremos el comando rails console.
 
+```
+m = Movie.new(:title => '', :rating => 'RG', :release_date => '1929-01-01')
+# force validation checks to be performed:
+m.valid?  # => false
+m.errors[:title] # => ["can't be blank"]
+m.errors[:rating] # => [] - validation skipped for grandfathered movies
+m.errors[:release_date] # => ["must be 1930 or later"]
+m.errors.full_messages # => ["Title can't be blank", "Release date must be 1930 or later"]
+```
 
+Vemoos que las salidas son las esperadas 
+![RailsConsole](Image/RailsConsole.png)
 
