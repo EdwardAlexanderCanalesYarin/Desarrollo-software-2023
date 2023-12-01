@@ -47,6 +47,8 @@ Luego cambiaremos el formato de html.haml a html.erb del archivo ```index.html.h
 <%= render partial: 'movie', collection: @movies %>
 ```
 
+**IMPORTANTE:** para agregar la vista parcial del archivo llamado ```_movie.html.erb``` en ```<%= render partial: 'movie', collection: @movies %>``` se escribe el nombre sin guión bajo ni la extension .html.erb (movie).
+
 Ejecutamos nuevamente el servidor y se sigue observando las tablas y no arroja ningún error
 
 ![VistaParcial](Image/VistaParcial.png)
