@@ -75,7 +75,7 @@ class Movie < ActiveRecord::Base
 end
 ```
 
-y comprueba tus resultados en la consola, para esro usaremos la consola de comandos de ruby, ejecutaremos el comando rails console.
+y comprueba tus resultados en la consola, para esto usaremos la consola de comandos de ruby, ejecutaremos el comando rails console.
 
 ```
 m = Movie.new(:title => '', :rating => 'RG', :release_date => '1929-01-01')
