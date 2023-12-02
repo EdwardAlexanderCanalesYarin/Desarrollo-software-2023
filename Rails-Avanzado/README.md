@@ -163,7 +163,7 @@ Creamos una instancia de la clase Movie en la variable m
 ![RailsConsola1](Image/RailsConsola1.png)
 
 Verificamos si se canonicalizó el título de la película
-![RailsConsola2](Image/RailsConsola2.png)
+![RailsConsola2](Image/RailsConsole2.png)
 
 Observamos que el título de la película pasó de "STAR  wars" a "Star Wars".
 
@@ -208,7 +208,7 @@ grep -r 'class Moviegoer' ./app/models
 ```
 
 Observamos que el modelo ya existe y se ubica en el archivo moviegoer.rb en el directorio "/app/models"
-![GrepRecursivoClaaMoviegoer](Image/GrepRecursivoClaaMoviegoer.png)
+![GrepRecursivoClaaMoviegoer](Image/GrepRecursivoClaseMoviegoer.png)
 
 Ahora aplicamos dicha migración con el comando ```rake db:migrate```
 
