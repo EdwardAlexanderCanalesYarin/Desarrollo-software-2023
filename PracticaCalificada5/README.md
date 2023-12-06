@@ -81,7 +81,7 @@ Si no existe tal implementacion, debe escribirse el codigo necesario para que pa
 ### 6
 ### 7
 
-## Pregunta (5 puntos) : Para el siguiente ejercicio utiliza la lista de proyectos Rails de código abierto en Open Source Rails: (link)[https://github.com/gramantin/awesome-rails#open-source-rails-apps]
+## Pregunta (5 puntos) : Para el siguiente ejercicio utiliza la lista de proyectos Rails de código abierto en Open Source Rails: [link](https://github.com/gramantin/awesome-rails#open-source-rails-apps)
 ### 1
 ### 2
 ### 3
