@@ -31,7 +31,9 @@ Escenario: mostrar puntuación media de reseñas de la pelicula "Inception" al b
 
 ### 5
 ### 6 De la actividad relacionadas a BDD e historias de usuario indica una lista de pasos como los de la siguiente figura
+
 ![PC5BDDWhen](Image/PC5BDDWhen.png)
+
 Para implementar el siguiente paso: ```When / I delete the movie: "(.*)"/ do |title| ```
 
 ```
@@ -44,7 +46,31 @@ When / I delete the movie: "(.*)"/ do |title|
 end
 ```
 
-### 7
+### 7 Basándose en el siguiente fichero de especificaciones (specfile), ¿a qué métodos deberían responder las instancias de F1 para pasar las pruebas?
+
+``` ruby
+require 'f1'
+describe F1 do
+	describe "a new f1" do
+		before :each do ; @f1 = F1.new ; end
+		it "should be a pain in the butt" do
+			@f1.should be_a_pain_in_the_butt
+		end
+                it "should be awesome" do
+                  	@f1.should be_awesome
+              	end
+               	it "should not be nil" do
+                 	@f1.should_not  be_nil
+            	end
+           	it "should not be the empty string" do
+               		@f1.should_not == ""
+            	end
+	end
+end
+```
+Para que pasen las pruebas, las instancias deben responder a los metodos ```be_a_pain_in_the_butt```, ```be_awesome```, ```be_nil``` y ```empty```. Estos metodos deben ser implementados necesariamente en la clase F1 que debe estar ubicada en la carpeta llamada ```lib```.
+Si no existe tal implementacion, debe escribirse el codigo necesario para que pasen las pruebas.
+
 
 ## Pregunta:   Utilizando historias de usuario y Cucumber (8 puntos)
 ### 1
